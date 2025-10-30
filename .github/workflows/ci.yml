@@ -1,3 +1,4 @@
+# .github/workflows/ci.yml
 name: CI
 
 on:
@@ -5,16 +6,15 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch: {}   # lets you run it manually
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Verify files exist
+      - uses: actions/checkout@v4
+      - name: Sanity check
         run: |
-          echo "✅ Index and 404 page check"
-          ls -l index.html 404.html
+          echo "Repo: $GITHUB_REPOSITORY"
+          test -f index.html && echo "found index.html" || (echo "missing index.html" && exit 1)
+          test -f 404.html && echo "found 404.html" || (echo "missing 404.html" && exit 1)
