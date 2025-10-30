@@ -1,5 +1,7 @@
 # Custom 404 GitHub Pages Site
 
+[![CI](https://github.com/Abhishek-Manish-Gupte/custom-404/actions/workflows/ci.yml/badge.svg)](https://github.com/Abhishek-Manish-Gupte/custom-404/actions/workflows/ci.yml)
+
 A demo website with a creative custom 404 page.
 
 Deployed at: https://<username>.github.io/custom-404  
